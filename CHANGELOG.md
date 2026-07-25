@@ -14,6 +14,13 @@ The format is based on [**Keep a Changelog**](https://keepachangelog.com/en/1.1.
 - Frontend roadmap
 - Engineering workflow
 - Repository documentation
+- Configured Husky
+- Configured lint-staged
+- Added pre-commit hook
+- Configured Prettier
+- Added Tailwind CSS Prettier plugin
+- Added EditorConfig
+- Added formatting scripts
 
 ---
 
@@ -34,10 +41,6 @@ The format is based on [**Keep a Changelog**](https://keepachangelog.com/en/1.1.
 - Configured global providers
 - Configured theme system
 - Configured Continuous Integration
-- Configured Prettier
-- Added Tailwind CSS Prettier plugin
-- Added EditorConfig
-- Added formatting scripts
 
 ### Documentation
 
