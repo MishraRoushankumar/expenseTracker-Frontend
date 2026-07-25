@@ -1,0 +1,169 @@
+# Contributing
+
+Thank you for your interest in contributing to the Expense Tracker Frontend.
+
+This document outlines the project's development workflow, coding standards, and contribution process.
+
+---
+
+# Development Workflow
+
+Every change follows the same workflow.
+
+```text
+
+Issue
+
+↓
+
+Feature Branch
+
+↓
+
+Implementation
+
+↓
+
+Testing
+
+↓
+
+Documentation Review
+
+↓
+
+Pull Request
+
+↓
+
+Code Review
+
+↓
+
+Merge into develop
+
+↓
+
+Release
+
+```
+
+---
+
+# Branch Strategy
+
+The repository follows a Git Flow-inspired workflow.
+
+```
+main
+│
+└── develop
+      │
+      ├── feature/*
+      ├── bug/*
+      ├── refactor/*
+      ├── docs/*
+      └── release/*
+```
+
+---
+
+# Commit Convention
+
+Use Conventional Commits.
+
+Examples:
+
+```
+feat(auth): implement login form
+
+fix(theme): resolve dark mode persistence
+
+refactor(api): simplify axios configuration
+
+docs: update roadmap
+
+test(auth): add login component tests
+```
+
+---
+
+# Pull Requests
+
+Every Pull Request should:
+
+- Reference an issue
+- Have a clear description
+- Focus on a single responsibility
+- Pass linting
+- Pass production build
+- Include documentation updates when necessary
+
+---
+
+# Coding Standards
+
+General guidelines:
+
+- Prefer feature-first organization
+- Keep components focused
+- Avoid duplicated logic
+- Write reusable code
+- Prefer composition over inheritance
+- Avoid unnecessary abstractions
+
+---
+
+# Architecture
+
+The frontend follows a hybrid feature-first architecture.
+
+Business logic belongs inside feature modules.
+
+Shared infrastructure remains globally accessible.
+
+---
+
+# Documentation
+
+Documentation is considered part of every feature.
+
+Update documentation whenever implementation changes affect:
+
+- Setup
+- Architecture
+- Workflow
+- Roadmap
+- Developer experience
+
+---
+
+# Code Reviews
+
+Reviews should focus on:
+
+- Correctness
+- Maintainability
+- Readability
+- Performance
+- Accessibility
+- Consistency
+
+---
+
+# Issue Workflow
+
+Every issue should have:
+
+- Clear objective
+- Defined scope
+- Acceptance criteria
+- Definition of Done
+
+Large changes should be split into multiple focused issues.
+
+---
+
+# Questions
+
+If architectural or implementation decisions require clarification, discuss them before implementation rather than during review.

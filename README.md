@@ -1,36 +1,325 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Expense Tracker Frontend
+
+> A modern, production-ready expense tracking application built with **Next.js**, **React**, and **TypeScript**.
+>
+> **Status:** 🚧 Under Active Development
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8?logo=tailwindcss)
+![License](https://img.shields.io/github/license/MishraRoushankumar/expenseTracker-Frontend)
+![Release](https://img.shields.io/github/v/release/MishraRoushankumar/expenseTracker-Frontend?display_name=tag)
+
+---
+
+## Overview
+
+Expense Tracker Frontend is the client application for the Expense Tracker platform.
+
+It provides a modern, responsive, and accessible user interface for managing personal finances while consuming the Expense Tracker Backend REST API.
+
+The project emphasizes clean architecture, reusable components, scalable feature organization, and production-ready engineering practices.
+
+---
+
+## Planned Features
+
+### Authentication
+
+- User registration
+- User login
+- Protected routes
+- Session management
+
+### Dashboard
+
+- Financial summary
+- Monthly trends
+- Category analytics
+- Dashboard insights
+- Recent transactions
+
+### Transaction Management
+
+- Create transactions
+- Update transactions
+- Delete transactions
+- Filtering
+- Sorting
+- Pagination
+
+### Category Management
+
+- Create categories
+- Update categories
+- Delete categories
+- Category analytics
+
+### Financial Planning
+
+- Budget management
+- Spending insights
+- Financial reports
+
+### User Experience
+
+- Responsive design
+- Dark mode
+- Accessible interface
+- Optimistic updates
+- Loading states
+- Error boundaries
+
+---
+
+## Technology Stack
+
+### Framework
+
+- Next.js 16
+
+### Language
+
+- TypeScript
+
+### UI
+
+- React 19
+- Tailwind CSS v4
+
+### Planned Libraries
+
+- TanStack Query
+- Axios
+- Zod
+- React Hook Form
+- shadcn/ui
+- next-themes
+- Recharts
+- Sonner
+
+---
+
+## Architecture
+
+The frontend follows a **hybrid feature-first architecture**.
+
+Business logic is organized by feature, while shared infrastructure such as reusable UI components, configuration, providers, and utilities remain globally accessible.
+
+This approach promotes:
+
+- Scalability
+- Maintainability
+- Modularity
+- Clear ownership
+- Separation of concerns
+
+---
+
+## Project Structure
+
+```text
+src/
+│
+├── app/              # Next.js App Router
+├── components/       # Shared reusable components
+├── config/           # Application configuration
+├── constants/        # Shared constants
+├── features/         # Feature modules
+├── hooks/            # Shared custom hooks
+├── lib/              # Third-party configuration
+├── providers/        # React providers
+├── types/            # Shared TypeScript types
+└── utils/            # Utility functions
+```
+
+### Feature Modules
+
+```text
+features/
+├── auth/
+├── categories/
+├── dashboard/
+├── profile/
+└── transactions/
+```
+
+Each feature owns its own:
+
+- Components
+- API layer
+- Hooks
+- Types
+- Validation
+- Utilities
+
+---
+
+## Design Principles
+
+The project follows several architectural principles:
+
+- Feature-first architecture
+- Modular feature ownership
+- Shared infrastructure only when necessary
+- Reusable UI components
+- Minimal global state
+- Strong TypeScript usage
+- Production-ready engineering practices
+
+---
+
+## Prerequisites
+
+Before running the project, ensure you have:
+
+- Node.js 24+
+- npm
+- Git
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
+
+```bash
+git clone git@github.com:MishraRoushankumar/expenseTracker-Frontend.git
+```
+
+Navigate into the project:
+
+```bash
+cd expenseTracker-Frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script          | Description              |
+| --------------- | ------------------------ |
+| `npm run dev`   | Start development server |
+| `npm run build` | Create production build  |
+| `npm run lint`  | Run ESLint               |
 
-## Learn More
+Additional scripts will be introduced as the project evolves.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Environment variable configuration will be introduced in **Issue #7 – Configure Project Configuration and Environment Management**.
 
-## Deploy on Vercel
+A `.env.example` file will be provided once the configuration layer is implemented.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development Workflow
+
+The project follows a feature-based development workflow.
+
+```
+Issue
+    ↓
+Feature Branch
+    ↓
+Implementation
+    ↓
+Testing
+    ↓
+Documentation
+    ↓
+Pull Request
+    ↓
+Review
+    ↓
+Merge into develop
+    ↓
+Release
+```
+
+---
+
+## Branch Strategy
+
+```text
+main
+│
+└── develop
+      │
+      ├── feature/*
+      ├── bug/*
+      ├── refactor/*
+      ├── docs/*
+      └── release/*
+```
+
+---
+
+## Related Repository
+
+The frontend consumes the REST API provided by the Expense Tracker Backend.
+
+**Backend Repository**
+
+https://github.com/MishraRoushankumar/expenseTracker-Backend
+
+---
+
+## Roadmap
+
+The complete project roadmap is available in:
+
+```text
+ROADMAP.md
+```
+
+---
+
+## Contributing
+
+Contribution guidelines are documented in:
+
+```text
+CONTRIBUTING.md
+```
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+See the `LICENSE` file for details.
+
+---
+
+## Project Philosophy
+
+The goal of this project is not only to build a modern expense tracking application but also to demonstrate professional frontend engineering practices.
+
+The repository emphasizes:
+
+- Clean architecture
+- Scalable project organization
+- Modular feature development
+- Maintainable code
+- Comprehensive documentation
+- Production-ready workflows
+- Continuous improvement
+
+As the project evolves, additional features, engineering improvements, and documentation will be introduced through structured milestones and incremental releases.
