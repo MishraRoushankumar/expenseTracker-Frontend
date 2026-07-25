@@ -21,6 +21,10 @@ The format is based on [**Keep a Changelog**](https://keepachangelog.com/en/1.1.
 - Added Tailwind CSS Prettier plugin
 - Added EditorConfig
 - Added formatting scripts
+- Centralized application configuration
+- Environment configuration module
+- Application configuration module
+- Environment variable template
 
 ---
 

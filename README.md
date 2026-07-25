@@ -239,29 +239,35 @@ Environment variable configuration will be introduced in **Issue #7 – Configur
 
 A `.env.example` file will be provided once the configuration layer is implemented.
 
+Copy the example file:
+
+```bash
+cp .env.example .env.local
+```
+
 ---
 
 ## Development Workflow
 
 The project follows a feature-based development workflow.
 
-```
+```md
 Issue
-    ↓
+↓
 Feature Branch
-    ↓
+↓
 Implementation
-    ↓
+↓
 Testing
-    ↓
+↓
 Documentation
-    ↓
+↓
 Pull Request
-    ↓
+↓
 Review
-    ↓
+↓
 Merge into develop
-    ↓
+↓
 Release
 ```
 
@@ -287,9 +293,9 @@ main
 
 The frontend consumes the REST API provided by the Expense Tracker Backend.
 
-**Backend Repository**
+### Backend Repository
 
-https://github.com/MishraRoushankumar/expenseTracker-Backend
+[https://github.com/MishraRoushankumar/expenseTracker-Backend](https://github.com/MishraRoushankumar/expenseTracker-Backend)
 
 ---
 
