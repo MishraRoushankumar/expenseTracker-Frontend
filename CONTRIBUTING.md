@@ -151,6 +151,19 @@ Reviews should focus on:
 
 ---
 
+# Git Hooks
+
+This repository uses Husky and lint-staged to maintain code quality.
+
+Before every commit, the following checks are executed automatically:
+
+- Prettier
+- ESLint
+
+Please ensure your commit succeeds locally before opening a Pull Request.
+
+---
+
 # Issue Workflow
 
 Every issue should have:

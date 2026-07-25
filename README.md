@@ -180,6 +180,17 @@ Before running the project, ensure you have:
 
 ---
 
+## Git Hooks
+
+The project uses Husky and lint-staged to automatically enforce code quality before every commit.
+
+The pre-commit hook:
+
+- Formats staged files using Prettier
+- Runs ESLint on staged JavaScript and TypeScript files
+
+---
+
 ## Getting Started
 
 Clone the repository:
