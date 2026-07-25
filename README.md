@@ -210,11 +210,13 @@ npm run dev
 
 ## Available Scripts
 
-| Script          | Description              |
-| --------------- | ------------------------ |
-| `npm run dev`   | Start development server |
-| `npm run build` | Create production build  |
-| `npm run lint`  | Run ESLint               |
+| Script                 | Description              |
+| ---------------------- | ------------------------ |
+| `npm run dev`          | Start development server |
+| `npm run build`        | Create production build  |
+| `npm run lint`         | Run ESLint               |
+| `npm run format`       |                          |
+| `npm run format:check` |                          |
 
 Additional scripts will be introduced as the project evolves.
 
