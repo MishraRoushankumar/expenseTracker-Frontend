@@ -6,7 +6,7 @@ This document outlines the project's development workflow, coding standards, and
 
 ---
 
-# Development Workflow
+## Development Workflow
 
 Every change follows the same workflow.
 
@@ -50,11 +50,11 @@ Release
 
 ---
 
-# Branch Strategy
+## Branch Strategy
 
 The repository follows a Git Flow-inspired workflow.
 
-```
+```text
 main
 │
 └── develop
@@ -68,13 +68,13 @@ main
 
 ---
 
-# Commit Convention
+## Commit Convention
 
 Use Conventional Commits.
 
 Examples:
 
-```
+```md
 feat(auth): implement login form
 
 fix(theme): resolve dark mode persistence
@@ -88,7 +88,7 @@ test(auth): add login component tests
 
 ---
 
-# Pull Requests
+## Pull Requests
 
 Every Pull Request should:
 
@@ -101,7 +101,7 @@ Every Pull Request should:
 
 ---
 
-# Coding Standards
+## Coding Standards
 
 General guidelines:
 
@@ -112,9 +112,19 @@ General guidelines:
 - Prefer composition over inheritance
 - Avoid unnecessary abstractions
 
+### Environment Variables
+
+Never access `process.env` directly.
+
+Always import environment variables from:
+
+```ts
+import { env } from "@/config";
+```
+
 ---
 
-# Architecture
+## Architecture
 
 The frontend follows a hybrid feature-first architecture.
 
@@ -124,7 +134,7 @@ Shared infrastructure remains globally accessible.
 
 ---
 
-# Documentation
+## Documentation
 
 Documentation is considered part of every feature.
 
@@ -138,7 +148,7 @@ Update documentation whenever implementation changes affect:
 
 ---
 
-# Code Reviews
+## Code Reviews
 
 Reviews should focus on:
 
@@ -151,7 +161,7 @@ Reviews should focus on:
 
 ---
 
-# Git Hooks
+## Git Hooks
 
 This repository uses Husky and lint-staged to maintain code quality.
 
@@ -164,7 +174,7 @@ Please ensure your commit succeeds locally before opening a Pull Request.
 
 ---
 
-# Issue Workflow
+## Issue Workflow
 
 Every issue should have:
 
@@ -177,6 +187,6 @@ Large changes should be split into multiple focused issues.
 
 ---
 
-# Questions
+## Questions
 
 If architectural or implementation decisions require clarification, discuss them before implementation rather than during review.
