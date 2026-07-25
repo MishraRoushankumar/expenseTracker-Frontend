@@ -88,10 +88,13 @@ The project emphasizes clean architecture, reusable components, scalable feature
 - React 19
 - Tailwind CSS v4
 
+### HTTP Client
+
+- Axios
+
 ### Planned Libraries
 
 - TanStack Query
-- Axios
 - Zod
 - React Hook Form
 - shadcn/ui
@@ -114,6 +117,16 @@ This approach promotes:
 - Modularity
 - Clear ownership
 - Separation of concerns
+
+---
+
+## API Communication
+
+The frontend communicates with the Expense Tracker Backend through a centralized HTTP client.
+
+A shared API client is configured under `src/lib` and serves as the foundation for feature-specific API modules.
+
+Business features own their respective API implementations while sharing the same underlying HTTP client.
 
 ---
 

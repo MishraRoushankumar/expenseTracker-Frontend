@@ -134,6 +134,16 @@ Shared infrastructure remains globally accessible.
 
 ---
 
+### API Client
+
+Use the shared API client for all backend communication.
+
+Do not create additional Axios instances inside feature modules.
+
+Feature modules should build on top of the shared client rather than configuring their own HTTP clients.
+
+---
+
 ## Documentation
 
 Documentation is considered part of every feature.
