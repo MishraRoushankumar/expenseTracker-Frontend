@@ -30,6 +30,9 @@ The format is based on [**Keep a Changelog**](https://keepachangelog.com/en/1.1.
 - Query Client configuration
 - Global provider architecture
 - Application provider composition
+- Theme system
+- Theme provider
+- System theme detection
 
 ---
 
