@@ -33,6 +33,9 @@ The format is based on [**Keep a Changelog**](https://keepachangelog.com/en/1.1.
 - Theme system
 - Theme provider
 - System theme detection
+- GitHub Actions workflow
+- Continuous Integration pipeline
+- Automated quality checks
 
 ---
 
