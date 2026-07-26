@@ -96,12 +96,15 @@ The project emphasizes clean architecture, reusable components, scalable feature
 
 - TanStack Query
 
+### Theme Provider
+
+- next-themes
+
 ### Planned Libraries
 
 - Zod
 - React Hook Form
 - shadcn/ui
-- next-themes
 - Recharts
 - Sonner
 

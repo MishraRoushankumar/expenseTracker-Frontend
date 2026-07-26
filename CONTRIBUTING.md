@@ -113,6 +113,8 @@ General guidelines:
 - Avoid unnecessary abstractions
 - Global providers should be composed through `AppProvider`.
 - Avoid adding providers directly to `app/layout.tsx`.
+- Global UI state such as theming should be implemented through AppProvider.
+- Avoid creating separate Theme Context implementations outside the provider architecture.
 
 ### Environment Variables
 
