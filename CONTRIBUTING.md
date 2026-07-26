@@ -201,6 +201,20 @@ Large changes should be split into multiple focused issues.
 
 ---
 
+### Continuous Integration
+
+All Pull Requests must pass the GitHub Actions workflow before merging.
+
+The CI pipeline validates:
+
+- Formatting
+- Linting
+- Production build
+
+Future releases will extend CI with automated testing.
+
+---
+
 ## Questions
 
 If architectural or implementation decisions require clarification, discuss them before implementation rather than during review.

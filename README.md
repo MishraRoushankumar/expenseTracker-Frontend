@@ -308,6 +308,18 @@ main
 
 ---
 
+## Continuous Integration
+
+The repository uses GitHub Actions to automatically verify code quality.
+
+Every push and pull request to the protected branches runs the following checks:
+
+- Formatting
+- ESLint
+- Production build
+
+---
+
 ## Related Repository
 
 The frontend consumes the REST API provided by the Expense Tracker Backend.
