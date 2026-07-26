@@ -111,6 +111,8 @@ General guidelines:
 - Write reusable code
 - Prefer composition over inheritance
 - Avoid unnecessary abstractions
+- Global providers should be composed through `AppProvider`.
+- Avoid adding providers directly to `app/layout.tsx`.
 
 ### Environment Variables
 

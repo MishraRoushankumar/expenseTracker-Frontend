@@ -92,9 +92,12 @@ The project emphasizes clean architecture, reusable components, scalable feature
 
 - Axios
 
-### Planned Libraries
+### Query Provider
 
 - TanStack Query
+
+### Planned Libraries
+
 - Zod
 - React Hook Form
 - shadcn/ui
