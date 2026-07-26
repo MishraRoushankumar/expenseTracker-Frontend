@@ -27,6 +27,9 @@ The format is based on [**Keep a Changelog**](https://keepachangelog.com/en/1.1.
 - Environment variable template
 - Centralized Axios client
 - HTTP client infrastructure
+- Query Client configuration
+- Global provider architecture
+- Application provider composition
 
 ---
 
