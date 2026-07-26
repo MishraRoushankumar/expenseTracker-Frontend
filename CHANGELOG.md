@@ -8,7 +8,14 @@ The format is based on **[Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 
 # [Unreleased]
 
-_No changes yet._
+## Added
+
+### UI Foundation
+
+- Configured shadcn/ui
+- Added shared UI component system
+- Configured Tailwind CSS v4 integration
+- Added Lucide React icon library
 
 ---
 
