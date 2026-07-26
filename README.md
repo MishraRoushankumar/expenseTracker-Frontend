@@ -126,6 +126,8 @@ The project evolves through structured milestones, ensuring every release delive
 | UI Library             | React 19            |
 | Language               | TypeScript          |
 | Styling                | Tailwind CSS v4     |
+| Component Library      | shadcn/ui           |
+| Icons                  | Lucide React        |
 | HTTP Client            | Axios               |
 | Server State           | TanStack Query      |
 | Theme Management       | next-themes         |

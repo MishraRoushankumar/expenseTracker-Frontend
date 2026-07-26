@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Raleway, Oxanium } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/providers";
+import { cn } from "@/lib/utils";
+
+const oxaniumHeading = Oxanium({ subsets: ["latin"], variable: "--font-heading" });
+
+const raleway = Raleway({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +29,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(
+        "h-full",
+        "antialiased",
+        geistSans.variable,
+        geistMono.variable,
+        "font-sans",
+        raleway.variable,
+        oxaniumHeading.variable,
+      )}
+    >
       <body className="flex min-h-full flex-col">
         <AppProvider>{children}</AppProvider>
       </body>
