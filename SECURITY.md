@@ -60,6 +60,8 @@ The following areas are considered within the scope of this policy:
 - Client-side Data Handling
 - Dependency Security
 - Build Configuration
+- JWT Authentication
+- Token Storage
 
 Third-party dependencies should be reported to their respective maintainers when appropriate.
 

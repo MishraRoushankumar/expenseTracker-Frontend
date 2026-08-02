@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 
-function LoginPage() {
-  return <div>dashboard</div>;
+function Dashboad() {
+  return <>dashboard</>;
 }
 
-export default LoginPage;
+export default Dashboad;
