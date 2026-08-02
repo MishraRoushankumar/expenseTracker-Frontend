@@ -8,6 +8,8 @@ import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "./password-input";
 import { Button } from "@/components/ui/button";
+import { useRegister } from "../hooks/use-auth-api";
+import { useRouter } from "next/navigation";
 
 export function RegisterForm() {
   const form = useForm<RegisterFormValues>({
@@ -22,8 +24,19 @@ export function RegisterForm() {
     mode: "onBlur",
   });
 
-  const onSubmit = (values: RegisterFormValues) => {
-    console.log(values);
+  const router = useRouter();
+  const registerMutation = useRegister();
+
+  const onSubmit = async (values: RegisterFormValues) => {
+    try {
+      await registerMutation.mutateAsync(values);
+
+      form.reset();
+
+      router.push("/login");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -97,8 +110,8 @@ export function RegisterForm() {
         <FieldError errors={[form.formState.errors.confirmPassword]} />
       </Field>
 
-      <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
-        {form.formState.isSubmitting ? "Creating Account..." : "Create Account"}
+      <Button type="submit" className="w-full" disabled={registerMutation.isPending}>
+        {registerMutation.isPending ? "Creating Account..." : "Create Account"}
       </Button>
     </form>
   );

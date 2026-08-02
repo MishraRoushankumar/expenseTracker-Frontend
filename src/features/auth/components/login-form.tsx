@@ -8,6 +8,8 @@ import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { PasswordInput } from "./password-input";
+import { useRouter } from "next/navigation";
+import { useLogin } from "../hooks/use-auth-api";
 
 export function LoginForm() {
   const form = useForm<LoginFormValues>({
@@ -21,9 +23,18 @@ export function LoginForm() {
     mode: "onBlur",
   });
 
-  function onSubmit(values: LoginFormValues) {
-    console.log(values);
-  }
+  const loginMutation = useLogin();
+  const router = useRouter();
+
+  const onSubmit = async (values: LoginFormValues) => {
+    try {
+      await loginMutation.mutateAsync(values);
+
+      router.push("/dashboard");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
@@ -55,8 +66,8 @@ export function LoginForm() {
         <FieldError errors={[form.formState.errors.password]} />
       </Field>
 
-      <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
-        {form.formState.isSubmitting ? "Signing In..." : "Sign In"}
+      <Button type="submit" className="w-full" disabled={loginMutation.isPending}>
+        {loginMutation.isPending ? "Signing In..." : "Sign In"}
       </Button>
     </form>
   );

@@ -20,6 +20,31 @@ The format is based on **[Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 - Documented authentication flows and session lifecycle
 - Documented frontend authentication design and implementation roadmap
 
+### Authentication
+
+- Added login page
+- Added registration page
+- Added reusable authentication layout
+- Added login form
+- Added registration form
+- Added password input component
+- Added authentication form validation with Zod
+- Added React Hook Form integration
+- Added JWT-based authentication flow
+- Added protected route guards
+- Added public route guards
+- Added centralized authentication storage utilities
+- Added authentication API integration
+- Added profile query
+
+## Changed
+
+- Simplified frontend authentication architecture
+- Removed AuthProvider in favor of React Query as the authentication source of truth
+- Centralized authentication state around the authenticated profile
+- Improved route protection logic
+- Improved SSR compatibility of authentication storage
+
 ---
 
 # [v0.1.0] - 2026-07-26

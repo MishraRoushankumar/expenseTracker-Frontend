@@ -30,13 +30,13 @@
 
 ## Status
 
-| Item               | Status                 |
-| ------------------ | ---------------------- |
-| Current Version    | **v0.1.0**             |
-| Development Status | 🚧 Active Development  |
-| Current Milestone  | ✅ Frontend Foundation |
-| Build Status       | Passing                |
-| CI Status          | Passing                |
+| Item               | Status                     |
+| ------------------ | -------------------------- |
+| Current Version    | **v0.2.0** (unreleased)    |
+| Development Status | 🚧 Active Development      |
+| Current Milestone  | Authentication & App Shell |
+| Build Status       | Passing                    |
+| CI Status          | Passing                    |
 
 ---
 
@@ -75,8 +75,38 @@ The project evolves through structured milestones, ensuring every release delive
 
 - User Registration
 - User Login
+- JWT Authentication
 - Protected Routes
-- Session Management
+- Public Route Guards
+- Persistent Authentication
+
+### Authentication Flow
+
+```text
+Login Form
+      │
+      ▼
+React Hook Form
+      │
+      ▼
+useLogin()
+      │
+      ▼
+Axios API
+      │
+      ▼
+JWT stored
+      │
+      ▼
+React Query
+      │
+      ▼
+useProfile()
+      │
+      ▼
+Protected Routes
+
+```
 
 ## Dashboard
 
@@ -129,6 +159,8 @@ The project evolves through structured milestones, ensuring every release delive
 | Component Library      | shadcn/ui           |
 | Icons                  | Lucide React        |
 | HTTP Client            | Axios               |
+| Validation             | Zod                 |
+| Forms                  | React Hook Form     |
 | Server State           | TanStack Query      |
 | Theme Management       | next-themes         |
 | Code Formatting        | Prettier            |
@@ -173,6 +205,12 @@ src/
 │
 ├── features/               # Feature modules
 │   ├── auth/
+|   |   ├── api/
+|   |   ├── components/
+|   |   ├── hooks/
+|   |   ├── schemas/
+|   |   ├── types/
+|   |   └── utils/
 │   ├── categories/
 │   ├── dashboard/
 │   ├── profile/
@@ -238,11 +276,11 @@ The shared API client is configured once under `src/lib` and reused across all f
 
 This approach provides:
 
-- Consistent request configuration
-- Centralized timeout management
-- Easy authentication integration
-- Simplified future interceptor support
-- Better maintainability
+- Centralized Axios API client
+- Feature-based API modules
+- JWT authentication
+- Shared request configuration
+- Centralized endpoint definitions
 
 ---
 
