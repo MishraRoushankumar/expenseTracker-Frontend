@@ -8,9 +8,40 @@ The format is based on **[Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 
 # [Unreleased]
 
-_No changes yet._
+## Added
+
+## Changed
 
 ---
+
+# [v0.2.0] - 2026-08-4
+
+## Added
+
+### Authentication
+
+- User registration
+- User login
+- Protected routes
+- Public route protection
+- Session persistence
+- Logout
+
+### Application Shell
+
+- Responsive sidebar
+- App header
+- User navigation
+- Theme switching
+- Responsive layout
+
+### Architecture
+
+- Feature-first frontend structure
+- React Query authentication
+- shadcn/ui application shell
+
+--
 
 # [v0.1.0] - 2026-07-26
 
