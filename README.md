@@ -188,6 +188,13 @@ The frontend follows a **hybrid feature-first architecture** designed for scalab
 - ✅ Provider-based application composition
 - ✅ Documentation-driven development
 
+## Frontend Architecture
+
+- Feature-first architecture
+- React Query for server state
+- shadcn/ui (Base UI)
+- App Shell pattern
+
 ---
 
 # Project Structure

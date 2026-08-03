@@ -4,8 +4,13 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import { useAuth } from "@/hooks/use-auth";
+import { AppShell } from "@/features/app-shell";
 
-export default function ProtectedLayout({ children }: { children: React.ReactNode }) {
+type ProtectedLayoutProps = {
+  children: React.ReactNode;
+};
+
+export default function ProtectedLayout({ children }: ProtectedLayoutProps) {
   const { isAuthenticated, isLoading } = useAuth();
   const router = useRouter();
 
@@ -23,5 +28,5 @@ export default function ProtectedLayout({ children }: { children: React.ReactNod
     return null;
   }
 
-  return children;
+  return <AppShell>{children}</AppShell>;
 }
