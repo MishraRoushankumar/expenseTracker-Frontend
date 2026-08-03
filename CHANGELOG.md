@@ -10,47 +10,38 @@ The format is based on **[Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 
 ## Added
 
-### UI Foundation
+## Changed
 
-- Configured shadcn/ui
-- Added shared UI component system
-- Configured Tailwind CSS v4 integration
-- Added Lucide React icon library
-- Added authentication architecture documentation
-- Documented authentication flows and session lifecycle
-- Documented frontend authentication design and implementation roadmap
-- Implemented the authenticated application shell.
-- Added responsive sidebar navigation.
-- Added user navigation with logout.
-- Added theme toggle.
-- Added responsive application header.
+---
+
+# [v0.2.0] - 2026-08-4
+
+## Added
 
 ### Authentication
 
-- Added login page
-- Added registration page
-- Added reusable authentication layout
-- Added login form
-- Added registration form
-- Added password input component
-- Added authentication form validation with Zod
-- Added React Hook Form integration
-- Added JWT-based authentication flow
-- Added protected route guards
-- Added public route guards
-- Added centralized authentication storage utilities
-- Added authentication API integration
-- Added profile query
+- User registration
+- User login
+- Protected routes
+- Public route protection
+- Session persistence
+- Logout
 
-## Changed
+### Application Shell
 
-- Simplified frontend authentication architecture
-- Removed AuthProvider in favor of React Query as the authentication source of truth
-- Centralized authentication state around the authenticated profile
-- Improved route protection logic
-- Improved SSR compatibility of authentication storage
+- Responsive sidebar
+- App header
+- User navigation
+- Theme switching
+- Responsive layout
 
----
+### Architecture
+
+- Feature-first frontend structure
+- React Query authentication
+- shadcn/ui application shell
+
+--
 
 # [v0.1.0] - 2026-07-26
 
