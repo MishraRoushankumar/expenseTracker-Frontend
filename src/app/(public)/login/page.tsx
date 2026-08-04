@@ -5,9 +5,8 @@ import {
   AuthLayout,
   LoginForm,
 } from "@/features/auth/components";
-import React from "react";
 
-function LoginPage() {
+export default function Page() {
   return (
     <div>
       <AuthLayout>
@@ -20,5 +19,3 @@ function LoginPage() {
     </div>
   );
 }
-
-export default LoginPage;

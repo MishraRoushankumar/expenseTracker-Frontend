@@ -7,7 +7,7 @@ import {
 } from "@/features/auth/components";
 import React from "react";
 
-function RegisterPage() {
+export default function Page() {
   return (
     <div>
       <AuthLayout>
@@ -23,5 +23,3 @@ function RegisterPage() {
     </div>
   );
 }
-
-export default RegisterPage;

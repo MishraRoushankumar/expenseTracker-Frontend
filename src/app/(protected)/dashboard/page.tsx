@@ -1,8 +1,6 @@
-"use client";
+import { DashboardPage } from "@/features/dashboard";
 import React from "react";
 
-function Dashboad() {
-  return <>dashboard</>;
+export default function Page() {
+  return <DashboardPage />;
 }
-
-export default Dashboad;
