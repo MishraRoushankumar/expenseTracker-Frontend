@@ -7,3 +7,11 @@ export type DashboardAction = {
   icon: LucideIcon;
   disabled?: boolean;
 };
+
+export type DashboardEvent = {
+  id: string;
+  title: string;
+  description: string;
+  timestamp: string;
+  icon: LucideIcon;
+};
