@@ -1,4 +1,4 @@
-import { DashboardWidget } from "@/components/dashboard";
+import { DashboardWidget, DashboardWidgetHeader } from "@/components/dashboard";
 import { RECENT_TRANSACTIONS } from "../constants/recent-transactions.constants";
 import { Separator } from "@/components/ui/separator";
 import { TransactionRow } from "./transaction-row";
@@ -21,11 +21,11 @@ export function RecentTransactions() {
     <DashboardWidget>
       <div className="space-y-6">
         {/* Header */}
-        <div className="space-y-1">
-          <h3 className="text-lg font-semibold tracking-tight">Recent Transactions</h3>
 
-          <p className="text-muted-foreground/80 text-sm">Your latest financial activity.</p>
-        </div>
+        <DashboardWidgetHeader
+          title="Recent Transactions"
+          description="Your latest financial activity."
+        />
 
         {/* Content */}
         {!hasTransactions ? (

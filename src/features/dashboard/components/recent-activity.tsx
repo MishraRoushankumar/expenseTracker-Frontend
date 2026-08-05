@@ -1,4 +1,4 @@
-import { DashboardWidget } from "@/components/dashboard";
+import { DashboardWidget, DashboardWidgetHeader } from "@/components/dashboard";
 import { RECENT_ACTIVITY } from "../constants/recent-activity.constants";
 import { ActivityItem } from "./activity-card";
 import { Button } from "@/components/ui/button";
@@ -7,11 +7,10 @@ export function RecentActivity() {
   return (
     <DashboardWidget>
       <div className="space-y-6">
-        <div className="space-y-1">
-          <h3 className="text-lg font-semibold tracking-tight">Recent Activity</h3>
-
-          <p className="text-muted-foreground text-sm">Latest updates from your account.</p>
-        </div>
+        <DashboardWidgetHeader
+          title="Recent Activity"
+          description="Latest updates from your account"
+        />
 
         <div className="space-y-5">
           {RECENT_ACTIVITY.map((activity) => (
