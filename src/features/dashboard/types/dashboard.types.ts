@@ -15,3 +15,19 @@ export type DashboardEvent = {
   timestamp: string;
   icon: LucideIcon;
 };
+
+export type BudgetProgress = {
+  id: string;
+  category: string;
+  spent: number;
+  limit: number;
+};
+
+export type DashboardTransaction = {
+  id: string;
+  title: string;
+  category: string;
+  amount: number;
+  type: "income" | "expense";
+  date: string;
+};
