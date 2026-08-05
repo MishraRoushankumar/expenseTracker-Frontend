@@ -1,6 +1,6 @@
 {
-  "name": "expense-tracker-app",
-  "version": "0.2.0",
+  "name": "ledger-sense",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

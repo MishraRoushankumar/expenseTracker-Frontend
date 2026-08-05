@@ -46,6 +46,19 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  --color-metric-balance: var(--metric-balance);
+  --color-metric-income: var(--metric-income);
+  --color-metric-expense: var(--metric-expense);
+  --color-metric-savings: var(--metric-savings);
 }
 
 :root {
@@ -81,6 +94,24 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Semantic colors */
+  --success: oklch(0.74 0.18 145);
+  --success-foreground: oklch(0.18 0.03 145);
+
+  --warning: oklch(0.84 0.16 85);
+  --warning-foreground: oklch(0.26 0.04 85);
+
+  --info: oklch(0.69 0.16 245);
+  --info-foreground: oklch(0.98 0.01 245);
+
+  /* Dashboard metrics */
+  --metric-balance: var(--info);
+  --metric-income: var(--success);
+  --metric-expense: var(--destructive);
+  --metric-savings: var(--warning);
+
+  /* Shared component shadow */
+  --shadow-card: 0 2px 8px rgb(0 0 0 / 0.05);
 }
 
 .dark {
@@ -115,6 +146,21 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --success: oklch(0.78 0.18 145);
+  --success-foreground: oklch(0.18 0.03 145);
+
+  --warning: oklch(0.86 0.16 85);
+  --warning-foreground: oklch(0.22 0.03 85);
+
+  --info: oklch(0.75 0.16 245);
+  --info-foreground: oklch(0.18 0.03 245);
+
+  --metric-balance: var(--info);
+  --metric-income: var(--success);
+  --metric-expense: var(--destructive);
+  --metric-savings: var(--warning);
+
+  --shadow-card: 0 4px 14px rgb(0 0 0 / 0.3);
 }
 
 ::selection {
@@ -126,7 +172,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground min-h-screen;
+    @apply bg-background text-foreground min-h-screen antialiased;
   }
   html {
     @apply font-sans;

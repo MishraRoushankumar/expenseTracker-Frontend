@@ -6,11 +6,43 @@ The format is based on **[Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 
 ---
 
-# [Unreleased]
+# [v0.3.0] - YYYY-MM-DD
 
 ## Added
 
-## Changed
+### Dashboard
+
+- Welcome Banner
+- Financial Overview
+- Recent Transactions
+- Budget Progress
+- Quick Actions
+- Recent Activity
+- Responsive dashboard layout
+
+### User Experience
+
+- Loading skeletons
+- Empty states
+- Improved hover states
+- Improved typography
+- Accessibility improvements
+
+### Architecture
+
+- DashboardWidget
+- DashboardWidgetHeader
+- OverviewCard
+- TransactionRow
+- BudgetProgressItem
+- ActivityItem
+- ActionCard
+
+### Refactoring
+
+- Extracted reusable dashboard components
+- Reduced duplicated widget header markup
+- Improved feature modularity
 
 ---
 

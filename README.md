@@ -30,13 +30,13 @@
 
 ## Status
 
-| Item               | Status                     |
-| ------------------ | -------------------------- |
-| Current Version    | **v0.2.0** (unreleased)    |
-| Development Status | 🚧 Active Development      |
-| Current Milestone  | Authentication & App Shell |
-| Build Status       | Passing                    |
-| CI Status          | Passing                    |
+| Item               | Status                  |
+| ------------------ | ----------------------- |
+| Current Version    | **v0.3.0** (unreleased) |
+| Development Status | 🚧 Dashboard Polish     |
+| Current Milestone  | Dashboard               |
+| Build Status       | Passing                 |
+| CI Status          | Passing                 |
 
 ---
 
@@ -110,11 +110,15 @@ Protected Routes
 
 ## Dashboard
 
-- Financial Summary
-- Monthly Trends
-- Spending Analytics
-- Dashboard Insights
+- Welcome Banner
+- Financial Overview
 - Recent Transactions
+- Budget Progress
+- Quick Actions
+- Recent Activity
+- Responsive Dashboard Layout
+- Loading Skeletons
+- Empty States
 
 ## Transaction Management
 
@@ -195,7 +199,22 @@ The frontend follows a **hybrid feature-first architecture** designed for scalab
 - shadcn/ui (Base UI)
 - App Shell pattern
 
----
+## Dashboard Architecture
+
+```text
+Dashboard
+├── WelcomeBanner
+├── FinancialOverview
+│   └── OverviewCard
+├── RecentTransactions
+│   └── TransactionRow
+├── BudgetProgress
+│   └── BudgetProgressItem
+├── QuickActions
+│   └── ActionCard
+└── RecentActivity
+    └── ActivityItem
+```
 
 # Project Structure
 
@@ -212,12 +231,6 @@ src/
 │
 ├── features/               # Feature modules
 │   ├── auth/
-|   |   ├── api/
-|   |   ├── components/
-|   |   ├── hooks/
-|   |   ├── schemas/
-|   |   ├── types/
-|   |   └── utils/
 │   ├── categories/
 │   ├── dashboard/
 │   ├── profile/
@@ -247,10 +260,10 @@ features/
 └── auth/
     ├── api/
     ├── components/
+    ├── constants/
     ├── hooks/
     ├── types/
-    ├── utils/
-    └── validation/
+    └── utils/
 ```
 
 Business logic remains inside the owning feature while shared infrastructure stays outside feature modules.
@@ -272,6 +285,8 @@ The repository emphasizes professional software engineering practices.
 | Git Hooks                        |   ✅   |
 | Continuous Integration           |   ✅   |
 | Documentation-driven Development |   ✅   |
+| Component-driven Development     |   ✅   |
+| Reusable UI System               |   ✅   |
 
 ---
 
@@ -592,18 +607,18 @@ The project has completed its initial engineering foundation and is ready for fe
 
 The project is developed through milestone-based releases.
 
-| Version    | Milestone                  | Status  |
-| ---------- | -------------------------- | :-----: |
-| **v0.1.0** | Frontend Foundation        |   ✅    |
-| **v0.2.0** | Authentication & App Shell | 🚧 Next |
-| **v0.3.0** | Dashboard                  |   ⏳    |
-| **v0.4.0** | Categories                 |   ⏳    |
-| **v0.5.0** | Transactions               |   ⏳    |
-| **v0.6.0** | UI System                  |   ⏳    |
-| **v0.7.0** | Profile & Settings         |   ⏳    |
-| **v0.8.0** | Budget Management          |   ⏳    |
-| **v0.9.0** | Financial Reports          |   ⏳    |
-| **v1.0.0** | Production Ready           |   🎯    |
+| Version    | Milestone                        | Status  |
+| ---------- | -------------------------------- | :-----: |
+| **v0.1.0** | Frontend Foundation              |   ✅    |
+| **v0.2.0** | Authentication & App Shell       |   ✅    |
+| **v0.3.0** | Dashboard & Analytics Foundation | 🚧 Next |
+| **v0.4.0** | Categories                       |   ⏳    |
+| **v0.5.0** | Transactions                     |   ⏳    |
+| **v0.6.0** | UI System                        |   ⏳    |
+| **v0.7.0** | Profile & Settings               |   ⏳    |
+| **v0.8.0** | Budget Management                |   ⏳    |
+| **v0.9.0** | Financial Reports                |   ⏳    |
+| **v1.0.0** | Production Ready                 |   🎯    |
 
 For complete milestone details, see:
 
