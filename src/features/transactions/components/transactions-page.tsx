@@ -15,7 +15,7 @@ export function TransactionsPage() {
         <div>
           <h1 className="text-2xl font-semibold">Transactions</h1>
 
-          <p className="text-muted-foreground text-sm">View and manage your transactions.</p>
+          <p className="text-muted-foreground text-sm">View your transactions.</p>
         </div>
 
         <TransactionsSkeleton />
@@ -47,7 +47,7 @@ export function TransactionsPage() {
       <div>
         <h1 className="text-2xl font-semibold">Transactions</h1>
 
-        <p className="text-muted-foreground text-sm">View and manage your transactions.</p>
+        <p className="text-muted-foreground text-sm">View your transactions.</p>
       </div>
 
       <TransactionsTable transactions={data.data} />
