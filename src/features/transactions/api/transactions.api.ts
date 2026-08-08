@@ -1,5 +1,5 @@
 import { apiClient, TRANSACTIONS_API, unwrapApiResponse } from "@/lib";
-import type { ApiResponse } from "@/types/api.types";
+import type { ApiResponse, PaginatedApiResponse } from "@/types/api.types";
 
 import type {
   CreateTransactionRequest,
@@ -12,12 +12,14 @@ import type {
 export const getTransactions = async (
   params?: TransactionQueryParams,
 ): Promise<GetTransactionsResponse> => {
-  const response = await apiClient.get<ApiResponse<GetTransactionsResponse>>(
-    TRANSACTIONS_API.ROOT,
-    { params },
-  );
+  const response = await apiClient.get<PaginatedApiResponse<Transaction>>(TRANSACTIONS_API.ROOT, {
+    params,
+  });
 
-  return unwrapApiResponse(response);
+  return {
+    data: response.data.data,
+    pagination: response.data.pagination,
+  };
 };
 
 export const getTransactionById = async (id: number): Promise<Transaction> => {
@@ -44,8 +46,6 @@ export const updateTransaction = async (
   return unwrapApiResponse(response);
 };
 
-export const deleteTransaction = async (id: number): Promise<Transaction> => {
-  const response = await apiClient.delete<ApiResponse<Transaction>>(TRANSACTIONS_API.BY_ID(id));
-
-  return unwrapApiResponse(response);
+export const deleteTransaction = async (id: number): Promise<void> => {
+  await apiClient.delete<ApiResponse<Transaction>>(TRANSACTIONS_API.BY_ID(id));
 };
