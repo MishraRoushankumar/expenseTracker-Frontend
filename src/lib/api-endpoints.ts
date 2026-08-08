@@ -13,3 +13,8 @@ export const DASHBOARD_API = {
     ROOT: "/dashboard",
   },
 } as const;
+
+export const TRANSACTIONS_API = {
+  ROOT: "/transactions",
+  BY_ID: (id: number) => `/transactions/${id}`,
+} as const;

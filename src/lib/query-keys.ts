@@ -5,7 +5,11 @@ export const QUERY_KEYS = {
 
   CATEGORIES: {},
 
-  TRANSACTIONS: {},
+  TRANSACTIONS: {
+    ALL: ["transactions"],
+    LIST: ["transactions", "list"],
+    DETAIL: (id: number) => ["transactions", "detail", id],
+  },
 
   DASHBOARD: {
     ALL: ["dashboard"],
