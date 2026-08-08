@@ -1,3 +1,4 @@
+import { PaginationMeta } from "@/types/pagination.types";
 import type { Transaction, TransactionType } from "./transaction.types";
 
 export interface CreateTransactionRequest {
@@ -40,5 +41,5 @@ export interface TransactionPagination {
 
 export interface GetTransactionsResponse {
   data: Transaction[];
-  pagination: TransactionPagination;
+  pagination: PaginationMeta;
 }
