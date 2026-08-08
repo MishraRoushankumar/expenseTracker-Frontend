@@ -7,3 +7,9 @@ export const AUTH_API = {
 export const USERS_API = {
   PROFILE: "/users/profile",
 } as const;
+
+export const DASHBOARD_API = {
+  DASHBOARD: {
+    ROOT: "/dashboard",
+  },
+} as const;

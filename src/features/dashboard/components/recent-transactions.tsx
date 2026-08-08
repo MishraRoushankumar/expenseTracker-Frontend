@@ -1,7 +1,11 @@
 import { DashboardWidget, DashboardWidgetHeader } from "@/components/dashboard";
-import { RECENT_TRANSACTIONS } from "../constants/recent-transactions.constants";
 import { Separator } from "@/components/ui/separator";
 import { TransactionRow } from "./transaction-row";
+import { RecentTransactionResponse } from "../types/dashboard-api.types";
+
+type RecentTransactionsProps = {
+  transactions: RecentTransactionResponse[];
+};
 
 function EmptyTransactions() {
   return (
@@ -15,8 +19,8 @@ function EmptyTransactions() {
   );
 }
 
-export function RecentTransactions() {
-  const hasTransactions = RECENT_TRANSACTIONS.length > 0;
+export function RecentTransactions({ transactions }: RecentTransactionsProps) {
+  const hasTransactions = transactions.length > 0;
   return (
     <DashboardWidget>
       <div className="space-y-6">
@@ -32,11 +36,11 @@ export function RecentTransactions() {
           <EmptyTransactions />
         ) : (
           <div>
-            {RECENT_TRANSACTIONS.map((transaction, index) => (
+            {transactions.map((transaction, index) => (
               <div key={transaction.id}>
                 <TransactionRow {...transaction} />
 
-                {index < RECENT_TRANSACTIONS.length - 1 && <Separator className="my-2" />}
+                {index < transactions.length - 1 && <Separator className="my-2" />}
               </div>
             ))}
           </div>

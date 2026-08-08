@@ -7,7 +7,7 @@ export function useAuth() {
   const logoutMutation = useLogout();
 
   return {
-    user: profileQuery.data?.data ?? null,
+    user: profileQuery.data ?? null,
     isAuthenticated: profileQuery.isSuccess,
     isLoading: profileQuery.isLoading,
     error: profileQuery.error,

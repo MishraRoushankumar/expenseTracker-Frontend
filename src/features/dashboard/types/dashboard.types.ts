@@ -23,11 +23,10 @@ export type BudgetProgress = {
   limit: number;
 };
 
-export type DashboardTransaction = {
-  id: string;
-  title: string;
-  category: string;
-  amount: number;
-  type: "income" | "expense";
-  date: string;
+export type FinancialOverviewData = {
+  currentBalance: number;
+  totalIncome: number;
+  totalExpense: number;
+  monthlySavings: number;
+  transactionCount: number;
 };

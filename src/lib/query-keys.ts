@@ -7,5 +7,7 @@ export const QUERY_KEYS = {
 
   TRANSACTIONS: {},
 
-  DASHBOARD: {},
+  DASHBOARD: {
+    ALL: ["dashboard"],
+  },
 } as const;

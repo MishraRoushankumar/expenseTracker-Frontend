@@ -1,10 +1,15 @@
 import { cn } from "@/lib/utils";
 
-import type { DashboardTransaction } from "../types/dashboard.types";
+import { RecentTransactionResponse } from "../types/dashboard-api.types";
 
-type TransactionRowProps = DashboardTransaction;
+type TransactionRowProps = RecentTransactionResponse;
 
-export function TransactionRow({ title, category, amount, type, date }: TransactionRowProps) {
+export function TransactionRow({
+  amount,
+  type,
+  transactionDate,
+  categoryName,
+}: TransactionRowProps) {
   const formattedAmount = `₹${amount.toLocaleString("en-IN")}`;
 
   return (
@@ -15,10 +20,10 @@ export function TransactionRow({ title, category, amount, type, date }: Transact
       )}
     >
       <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-semibold">{title}</p>
+        <p className="truncate text-sm font-semibold">{categoryName ?? "Uncategorized"}</p>
 
         <p className="text-muted-foreground text-xs">
-          {category} • {date}
+          {type} • {transactionDate}
         </p>
       </div>
 

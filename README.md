@@ -111,14 +111,16 @@ Protected Routes
 ## Dashboard
 
 - Welcome Banner
-- Financial Overview
-- Recent Transactions
+- Live Financial Overview
+- Live Recent Transactions
 - Budget Progress
 - Quick Actions
 - Recent Activity
 - Responsive Dashboard Layout
 - Loading Skeletons
 - Empty States
+- Error State
+- React Query caching
 
 ## Transaction Management
 

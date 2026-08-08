@@ -1,3 +1,4 @@
+"use client";
 import { Inbox, LucideIcon } from "lucide-react";
 
 type EmptyStateProps = {
