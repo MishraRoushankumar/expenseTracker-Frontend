@@ -12,7 +12,7 @@ export function useLogin() {
     mutationFn: login,
 
     onSuccess: async (response) => {
-      setAccessToken(response.data.accessToken);
+      setAccessToken(response.accessToken);
 
       queryClient.invalidateQueries({
         queryKey: QUERY_KEYS.AUTH.PROFILE,

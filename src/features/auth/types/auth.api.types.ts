@@ -1,6 +1,15 @@
-export interface AuthResponse {
-  success: boolean;
+/*
+==========================================
+AUTH PAYLOAD TYPES
+==========================================
+*/
+
+export interface AuthResult {
   message: string;
+}
+
+export interface LoginResult {
+  accessToken: string;
 }
 
 export interface UserProfile {
@@ -11,14 +20,4 @@ export interface UserProfile {
   role: string;
   createdAt: string;
   updatedAt: string;
-}
-
-export interface LoginResponse extends AuthResponse {
-  data: {
-    accessToken: string;
-  };
-}
-
-export interface ProfileResponse extends AuthResponse {
-  data: UserProfile;
 }

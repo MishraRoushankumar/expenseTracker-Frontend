@@ -1,34 +1,44 @@
 import { PiggyBank, TrendingDown, TrendingUp, Wallet } from "lucide-react";
 import { OverviewCard } from "./overview-card";
 
-const overviewItems = [
-  {
-    title: "Total Balance",
-    value: "₹42,500",
-    description: "+12% from last month",
-    icon: Wallet,
-  },
-  {
-    title: "Income",
-    value: "₹78,000",
-    description: "+8% this month",
-    icon: TrendingUp,
-  },
-  {
-    title: "Expenses",
-    value: "₹35,500",
-    description: "-5% this month",
-    icon: TrendingDown,
-  },
-  {
-    title: "Savings",
-    value: "₹18,700",
-    description: "24% savings rate",
-    icon: PiggyBank,
-  },
-];
+import { FinancialOverviewData } from "../types/dashboard.types";
 
-export function FinancialOverview() {
+type FinancialOverviewProps = {
+  summary: FinancialOverviewData;
+};
+
+export function FinancialOverview({ summary }: FinancialOverviewProps) {
+  const cards = [
+    {
+      title: "Current Balance",
+      value: summary.currentBalance,
+      description: "Available balance",
+      icon: Wallet,
+      trend: "",
+    },
+    {
+      title: "Total Income",
+      value: summary.totalIncome,
+      description: "Lifetime income",
+      icon: TrendingUp,
+      trend: "",
+    },
+    {
+      title: "Total Expenses",
+      value: summary.totalExpense,
+      description: "Lifetime expenses",
+      icon: TrendingDown,
+      trend: "",
+    },
+    {
+      title: "Monthly Savings",
+      value: summary.monthlySavings,
+      description: "This month",
+      icon: PiggyBank,
+      trend: "",
+    },
+  ];
+
   return (
     <section
       aria-labelledby="financial-overview-heading"
@@ -42,7 +52,7 @@ export function FinancialOverview() {
         Track your financial health at a glance.
       </p>
 
-      {overviewItems.map((item) => (
+      {cards.map((item) => (
         <OverviewCard
           key={item.title}
           title={item.title}
