@@ -5,9 +5,37 @@ import { Button } from "@/components/ui/button";
 import { useTransactions } from "../hooks";
 import { TransactionsTable } from "./transactions-table";
 import { TransactionsSkeleton } from "./skeletons/transactions-skeleton";
+import { useState } from "react";
+import { TransactionQueryParams } from "../types";
+import { TRANSACTION_DEFAULTS } from "../constants";
+import { TransactionFilters } from "./transactions-filters";
 
 export function TransactionsPage() {
-  const { data, isPending, isError, refetch } = useTransactions();
+  const [query, setQuery] = useState<TransactionQueryParams>({
+    page: TRANSACTION_DEFAULTS.PAGE,
+    limit: TRANSACTION_DEFAULTS.LIMIT,
+    sortBy: TRANSACTION_DEFAULTS.SORT_BY,
+    sortOrder: TRANSACTION_DEFAULTS.SORT_ORDER,
+  });
+
+  const updateQuery = (updates: Partial<TransactionQueryParams>) => {
+    setQuery((current) => ({
+      ...current,
+      ...updates,
+      page: 1,
+    }));
+  };
+
+  const resetQuery = () => {
+    setQuery({
+      page: TRANSACTION_DEFAULTS.PAGE,
+      limit: TRANSACTION_DEFAULTS.LIMIT,
+      sortBy: TRANSACTION_DEFAULTS.SORT_BY,
+      sortOrder: TRANSACTION_DEFAULTS.SORT_ORDER,
+    });
+  };
+
+  const { data, isPending, isError, refetch } = useTransactions(query);
 
   if (isPending) {
     return (
@@ -49,6 +77,8 @@ export function TransactionsPage() {
 
         <p className="text-muted-foreground text-sm">View your transactions.</p>
       </div>
+
+      <TransactionFilters query={query} onQueryChange={updateQuery} onReset={resetQuery} />
 
       <TransactionsTable transactions={data.data} />
     </section>
