@@ -29,6 +29,8 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
 
   const [endDateInput, setEndDateInput] = useState(query.endDate ?? "");
 
+  const [dateRangeError, setDateRangeError] = useState<string | null>(null);
+
   const [sortByInput, setSortByInput] = useState<TransactionQueryParams["sortBy"]>(
     query.sortBy ?? "transactionDate",
   );
@@ -38,6 +40,13 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
   );
 
   const handleApply = () => {
+    if (startDateInput && endDateInput && startDateInput > endDateInput) {
+      setDateRangeError("Start date cannot be later than end date.");
+      return;
+    }
+
+    setDateRangeError(null);
+
     onQueryChange({
       search: searchInput.trim() || undefined,
       type: typeInput,
@@ -53,6 +62,7 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
     setTypeInput(undefined);
     setStartDateInput("");
     setEndDateInput("");
+    setDateRangeError(null);
 
     setSortByInput("transactionDate");
     setSortOrderInput("desc");
@@ -65,14 +75,21 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
       <div className="space-y-4">
         {/* Search */}
         <div className="flex flex-col gap-2 sm:flex-row">
-          <Input
-            placeholder="Search transactions..."
-            value={searchInput}
-            onChange={(event) => {
-              setSearchInput(event.target.value);
-            }}
-            className="bg-accent flex-1 rounded-md pl-2"
-          />
+          <div className="flex-1">
+            <label htmlFor="transaction-search" className="sr-only">
+              Search transactions
+            </label>
+
+            <Input
+              id="transaction-search"
+              placeholder="Search transactions..."
+              value={searchInput}
+              onChange={(event) => {
+                setSearchInput(event.target.value);
+              }}
+              className="bg-accent w-full rounded-md pl-2"
+            />
+          </div>
 
           <div className="flex gap-2">
             <Button type="button" className="rounded-md" onClick={handleApply}>
@@ -89,7 +106,9 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {/* Type */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Transaction type</label>
+            <label id="transaction-type-label" className="text-sm font-medium">
+              Transaction type
+            </label>
 
             <Select
               value={typeInput ?? "all"}
@@ -97,7 +116,11 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
                 setTypeInput(value === "all" ? undefined : (value as TransactionType));
               }}
             >
-              <SelectTrigger className="bg-accent w-full rounded-md p-2">
+              <SelectTrigger
+                id="transaction-type-select"
+                aria-labelledby="transaction-type-label"
+                className="bg-accent w-full rounded-md p-2"
+              >
                 <SelectValue placeholder="All types" />
               </SelectTrigger>
 
@@ -113,13 +136,21 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
 
           {/* Start date */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">From date</label>
+            <label id="start-date-label" className="text-sm font-medium">
+              From date
+            </label>
 
             <Input
+              id="start-date-input"
               type="date"
+              aria-labelledby="start-date-label"
               value={startDateInput}
+              max={endDateInput || undefined}
               onChange={(event) => {
                 setStartDateInput(event.target.value);
+                if (dateRangeError) {
+                  setDateRangeError(null);
+                }
               }}
               className="bg-accent rounded-md p-2"
             />
@@ -127,23 +158,39 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
 
           {/* End date */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">To date</label>
+            <label id="end-date-label" className="text-sm font-medium">
+              To date
+            </label>
 
             <Input
+              id="end-date-input"
               type="date"
+              aria-labelledby="end-date-label"
               value={endDateInput}
+              min={startDateInput || undefined}
               onChange={(event) => {
                 setEndDateInput(event.target.value);
+                if (dateRangeError) {
+                  setDateRangeError(null);
+                }
               }}
               className="bg-accent rounded-md p-2"
             />
           </div>
         </div>
 
+        {dateRangeError ? (
+          <p className="text-destructive text-sm" role="alert">
+            {dateRangeError}
+          </p>
+        ) : null}
+
         {/* Sorting */}
         <div className="grid grid-cols-1 gap-4 border-t pt-4 sm:grid-cols-2">
           <div className="space-y-2">
-            <label className="text-sm font-medium">Sort by</label>
+            <label id="sort-by-label" className="text-sm font-medium">
+              Sort by
+            </label>
 
             <Select
               value={sortByInput ?? "transactionDate"}
@@ -151,7 +198,11 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
                 setSortByInput(value as TransactionQueryParams["sortBy"]);
               }}
             >
-              <SelectTrigger className="bg-accent w-full rounded-md p-2">
+              <SelectTrigger
+                id="sort-by-select"
+                aria-labelledby="sort-by-label"
+                className="bg-accent w-full rounded-md p-2"
+              >
                 <SelectValue />
               </SelectTrigger>
 
@@ -166,7 +217,9 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium">Sort order</label>
+            <label id="sort-order-label" className="text-sm font-medium">
+              Sort order
+            </label>
 
             <Select
               value={sortOrderInput ?? "desc"}
@@ -174,7 +227,11 @@ export function TransactionFilters({ query, onQueryChange, onReset }: Transactio
                 setSortOrderInput(value as TransactionQueryParams["sortOrder"]);
               }}
             >
-              <SelectTrigger className="bg-accent w-full rounded-md p-2">
+              <SelectTrigger
+                id="sort-order-select"
+                aria-labelledby="sort-order-label"
+                className="bg-accent w-full rounded-md p-2"
+              >
                 <SelectValue />
               </SelectTrigger>
 

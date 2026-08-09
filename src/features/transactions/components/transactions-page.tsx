@@ -37,39 +37,6 @@ export function TransactionsPage() {
 
   const { data, isPending, isError, refetch } = useTransactions(query);
 
-  if (isPending) {
-    return (
-      <section className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-semibold">Transactions</h1>
-
-          <p className="text-muted-foreground text-sm">View your transactions.</p>
-        </div>
-
-        <TransactionsSkeleton />
-      </section>
-    );
-  }
-
-  if (isError) {
-    return (
-      <EmptyState
-        title="Unable to load transactions"
-        description="Something went wrong while loading your transactions."
-        action={<Button onClick={() => refetch()}>Try again</Button>}
-      />
-    );
-  }
-
-  if (!data || data.data.length === 0) {
-    return (
-      <EmptyState
-        title="No transactions yet"
-        description="Your transactions will appear here once you add one."
-      />
-    );
-  }
-
   return (
     <section className="space-y-6">
       <div>
@@ -80,7 +47,22 @@ export function TransactionsPage() {
 
       <TransactionFilters query={query} onQueryChange={updateQuery} onReset={resetQuery} />
 
-      <TransactionsTable transactions={data.data} />
+      {isPending ? (
+        <TransactionsSkeleton />
+      ) : isError ? (
+        <EmptyState
+          title="Unable to load transactions"
+          description="Something went wrong while loading your transactions."
+          action={<Button onClick={() => refetch()}>Try again</Button>}
+        />
+      ) : !data || data.data.length === 0 ? (
+        <EmptyState
+          title="No transactions yet"
+          description="Your transactions will appear here once you add one."
+        />
+      ) : (
+        <TransactionsTable transactions={data.data} />
+      )}
     </section>
   );
 }
