@@ -8,7 +8,7 @@ export const createTransactionSchema = z.object({
   description: z
     .string()
     .trim()
-    .max(500, "Description must be 500 characters o less")
+    .max(500, "Description must be 500 characters or less")
     .nullable()
     .optional(),
 
