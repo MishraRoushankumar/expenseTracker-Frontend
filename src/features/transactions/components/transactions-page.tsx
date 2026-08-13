@@ -9,6 +9,7 @@ import { useState } from "react";
 import { TransactionQueryParams } from "../types";
 import { TRANSACTION_DEFAULTS } from "../constants";
 import { TransactionFilters } from "./transactions-filters";
+import { CreateTransactionDialog } from "./create-transaction-dialog";
 
 export function TransactionsPage() {
   const [query, setQuery] = useState<TransactionQueryParams>({
@@ -44,6 +45,8 @@ export function TransactionsPage() {
 
         <p className="text-muted-foreground text-sm">View your transactions.</p>
       </div>
+
+      <CreateTransactionDialog />
 
       <TransactionFilters query={query} onQueryChange={updateQuery} onReset={resetQuery} />
 

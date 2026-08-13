@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Raleway, Oxanium } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/providers";
+import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 
 const oxaniumHeading = Oxanium({ subsets: ["latin"], variable: "--font-heading" });
@@ -43,7 +44,10 @@ export default function RootLayout({
       )}
     >
       <body className="flex min-h-full flex-col">
-        <AppProvider>{children}</AppProvider>
+        <AppProvider>
+          {children}
+          <Toaster />
+        </AppProvider>
       </body>
     </html>
   );
