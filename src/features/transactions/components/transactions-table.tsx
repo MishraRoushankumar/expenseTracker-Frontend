@@ -20,6 +20,8 @@ export function TransactionsTable({ transactions }: TransactionsTableProps) {
             <th className="px-4 py-3 text-left text-sm font-medium">Type</th>
 
             <th className="px-4 py-3 text-right text-sm font-medium">Amount</th>
+
+            <th className="px-4 py-3 text-right text-sm font-medium">Actions</th>
           </tr>
         </thead>
 
