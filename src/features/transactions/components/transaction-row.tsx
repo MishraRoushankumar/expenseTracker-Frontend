@@ -1,5 +1,5 @@
 import type { Transaction } from "../types";
-import { EditTransactionDialog } from "./edit-transaction-dialog";
+import { TransactionActions } from "./transaction-actions";
 
 type TransactionRowProps = {
   transaction: Transaction;
@@ -29,8 +29,8 @@ export function TransactionRow({ transaction }: TransactionRowProps) {
       >
         {isIncome ? "+" : "-"}₹{transaction.amount.toLocaleString("en-IN")}
       </td>
-      <td>
-        <EditTransactionDialog transaction={transaction} />
+      <td className="px-4 py-3 text-right">
+        <TransactionActions transaction={transaction} />
       </td>
     </tr>
   );
