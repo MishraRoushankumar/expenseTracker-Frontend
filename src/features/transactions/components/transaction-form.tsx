@@ -17,33 +17,39 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-type CreateTransactionFormProps = {
+type TransactionFormProps = {
+  defaultValues?: CreateTransactionFormValues;
   onSubmit: (values: CreateTransactionFormValues) => Promise<void>;
   onCancel: () => void;
   isPending?: boolean;
+  submitLabel?: string;
 };
 
-export function CreateTransactionForm({
+export function TransactionForm({
+  defaultValues,
   onSubmit,
   onCancel,
   isPending = false,
-}: CreateTransactionFormProps) {
+  submitLabel = "Save Transaction",
+}: TransactionFormProps) {
+  const getLocalDateString = () => {
+    const date = new Date();
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  };
+
   const form = useForm<CreateTransactionFormValues>({
     resolver: zodResolver(createTransactionSchema),
 
-    defaultValues: {
+    defaultValues: defaultValues ?? {
       type: "expense",
       amount: undefined,
       description: "",
-      transactionDate: (() => {
-        const date = new Date();
-
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0");
-        const day = String(date.getDate()).padStart(2, "0");
-
-        return `${year}-${month}-${day}`;
-      })(),
+      transactionDate: getLocalDateString(),
     },
 
     mode: "onBlur",
@@ -136,7 +142,7 @@ export function CreateTransactionForm({
         </Button>
 
         <Button type="submit" disabled={isPending} className="rounded-md">
-          {isPending ? "Creating..." : "Create Transaction"}
+          {isPending ? "Saving..." : submitLabel}
         </Button>
       </div>
     </form>

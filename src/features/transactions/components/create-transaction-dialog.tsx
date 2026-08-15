@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { useCreateTransaction } from "../hooks";
 import type { CreateTransactionRequest } from "../types";
 import type { CreateTransactionFormValues } from "../schemas/create-transaction.schema";
-import { CreateTransactionForm } from "./create-transaction-form";
+import { TransactionForm } from "./transaction-form";
 
 export function CreateTransactionDialog() {
   const [open, setOpen] = useState(false);
@@ -57,10 +57,11 @@ export function CreateTransactionDialog() {
           <DialogTitle>Create Transaction</DialogTitle>
         </DialogHeader>
 
-        <CreateTransactionForm
+        <TransactionForm
           onSubmit={handleSubmit}
           onCancel={() => setOpen(false)}
           isPending={createTransactionMutation.isPending}
+          submitLabel="Create Transaction"
         />
       </DialogContent>
     </Dialog>
