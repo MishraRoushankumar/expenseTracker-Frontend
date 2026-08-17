@@ -68,7 +68,26 @@ export function TransactionsPage() {
           description="Something went wrong while loading your transactions."
           action={<Button onClick={() => refetch()}>Try again</Button>}
         />
-      ) : !data || data.data.length === 0 ? (
+      ) : !data ? (
+        <EmptyState
+          title="No transactions yet"
+          description="Your transactions will appear here once you add one."
+        />
+      ) : data.data.length === 0 &&
+        (data.pagination.hasPreviousPage || data.pagination.hasNextPage) ? (
+        <>
+          <EmptyState
+            title="No transactions on this page"
+            description="There are no transactions to show on the current page. Use the pagination below to browse other pages."
+          />
+
+          <TransactionPagination
+            pagination={data.pagination}
+            onPageChange={handlePageChange}
+            isLoading={isFetching}
+          />
+        </>
+      ) : data.data.length === 0 ? (
         <EmptyState
           title="No transactions yet"
           description="Your transactions will appear here once you add one."
