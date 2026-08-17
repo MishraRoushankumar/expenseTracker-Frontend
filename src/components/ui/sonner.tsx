@@ -1,5 +1,6 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
 import {
@@ -10,8 +11,20 @@ import {
   Loader2Icon,
 } from "lucide-react";
 
+const emptySubscribe = () => () => {};
+
 const Toaster = ({ ...props }: ToasterProps) => {
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
+
   const { theme = "system" } = useTheme();
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <Sonner

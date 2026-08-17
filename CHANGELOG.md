@@ -10,6 +10,13 @@ The format is based on **[Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 
 ## Added
 
+### Transactions
+
+- Transactions list and table UI
+- Transaction search, filtering, and sorting
+- Transaction pagination
+- Pagination-aware transaction navigation
+
 ### Dashboard
 
 - Welcome Banner
