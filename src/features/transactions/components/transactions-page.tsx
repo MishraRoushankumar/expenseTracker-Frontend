@@ -1,15 +1,18 @@
 "use client";
 
-import { EmptyState } from "@/components/shared/empty-state";
-import { Button } from "@/components/ui/button";
-import { useTransactions } from "../hooks";
-import { TransactionsTable } from "./transactions-table";
-import { TransactionsSkeleton } from "./skeletons/transactions-skeleton";
 import { useState } from "react";
+
+import { useTransactions } from "../hooks";
 import { TransactionQueryParams } from "../types";
 import { TRANSACTION_DEFAULTS } from "../constants";
+
+import { EmptyState } from "@/components/shared/empty-state";
+import { Button } from "@/components/ui/button";
+import { TransactionsTable } from "./transactions-table";
+import { TransactionsSkeleton } from "./skeletons/transactions-skeleton";
 import { TransactionFilters } from "./transactions-filters";
 import { CreateTransactionDialog } from "./create-transaction-dialog";
+import { TransactionPagination } from "./transactions-pagination";
 
 export function TransactionsPage() {
   const [query, setQuery] = useState<TransactionQueryParams>({
@@ -36,7 +39,14 @@ export function TransactionsPage() {
     });
   };
 
-  const { data, isPending, isError, refetch } = useTransactions(query);
+  const handlePageChange = (page: number) => {
+    setQuery((current) => ({
+      ...current,
+      page,
+    }));
+  };
+
+  const { data, isPending, isFetching, isError, refetch } = useTransactions(query);
 
   return (
     <section className="space-y-6">
@@ -58,13 +68,40 @@ export function TransactionsPage() {
           description="Something went wrong while loading your transactions."
           action={<Button onClick={() => refetch()}>Try again</Button>}
         />
-      ) : !data || data.data.length === 0 ? (
+      ) : !data ? (
+        <EmptyState
+          title="No transactions yet"
+          description="Your transactions will appear here once you add one."
+        />
+      ) : data.data.length === 0 &&
+        (data.pagination.hasPreviousPage || data.pagination.hasNextPage) ? (
+        <>
+          <EmptyState
+            title="No transactions on this page"
+            description="There are no transactions to show on the current page. Use the pagination below to browse other pages."
+          />
+
+          <TransactionPagination
+            pagination={data.pagination}
+            onPageChange={handlePageChange}
+            isLoading={isFetching}
+          />
+        </>
+      ) : data.data.length === 0 ? (
         <EmptyState
           title="No transactions yet"
           description="Your transactions will appear here once you add one."
         />
       ) : (
-        <TransactionsTable transactions={data.data} />
+        <>
+          <TransactionsTable transactions={data.data} />
+
+          <TransactionPagination
+            pagination={data.pagination}
+            onPageChange={handlePageChange}
+            isLoading={isFetching}
+          />
+        </>
       )}
     </section>
   );
